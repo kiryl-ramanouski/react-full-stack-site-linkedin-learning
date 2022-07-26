@@ -1,31 +1,24 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
+// data
+import articles from '../content/article-content';
+
 const ArticlePage = () => {
   const { name } = useParams();
+  const article = articles.filter((item) => item.name === name)[0];
   return (
     <>
-      <h1 className='header'>This is a {name} article</h1>
-      <p className='main-text'>
-        Article! Sometimes that's just the way it has to be. Sure, there were
-        probably other options, but he didn't let them enter his mind. It was
-        done and that was that. It was just the way it had to be.
-      </p>
-      <p>
-        She had come to the conclusion that you could tell a lot about a person
-        by their ears. The way they stuck out and the size of the earlobes could
-        give you wonderful insights into the person. Of course, she couldn't
-        scientifically prove any of this, but that didn't matter to her. Before
-        anything else, she would size up the ears of the person she was talking
-        to.
-      </p>
-      <p>
-        There were little things that she simply could not stand. The sound of
-        someone tapping their nails on the table. A person chewing with their
-        mouth open. Another human imposing themselves into her space. She
-        couldn't stand any of these things, but none of them compared to the
-        number one thing she couldn't stand which topped all of them combined.
-      </p>
+      <h2 className='header'>{article.title}</h2>
+      <>
+        {article.content.map((item, i) => {
+          return (
+            <p key={i} className='main-text'>
+              {item}
+            </p>
+          );
+        })}
+      </>
     </>
   );
 };
