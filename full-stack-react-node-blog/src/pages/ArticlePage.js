@@ -6,7 +6,7 @@ import articles from '../content/article-content';
 
 const ArticlePage = () => {
   const { name } = useParams();
-  const article = articles.filter((item) => item.name === name)[0];
+  const article = articles.find((item) => item.name === name);
   return (
     <>
       <h2 className='header'>{article.title}</h2>
