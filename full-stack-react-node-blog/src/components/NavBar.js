@@ -22,9 +22,6 @@ const NavBar = () => {
             <Nav.Link as={Link} to='/articles-list'>
               Articles List
             </Nav.Link>
-            <Nav.Link as={Link} to='/article'>
-              Article
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
