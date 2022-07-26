@@ -15,8 +15,7 @@ const ArticlesList = () => {
         {articles.map((item, i) => {
           return (
             <ListGroup.Item key={i} as={Link} to={item.name}>
-              {item.name[0].toUpperCase() +
-                item.name.replaceAll('-', ' ').slice(1)}
+              {item.title}
             </ListGroup.Item>
           );
         })}
