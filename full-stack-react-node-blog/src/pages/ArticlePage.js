@@ -1,9 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 const ArticlePage = () => {
+  const { name } = useParams();
   return (
     <>
-      <h1 className='header'>Article</h1>
+      <h1 className='header'>This is a {name} article</h1>
       <p className='main-text'>
         Article! Sometimes that's just the way it has to be. Sure, there were
         probably other options, but he didn't let them enter his mind. It was
