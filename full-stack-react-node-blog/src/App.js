@@ -1,8 +1,11 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import HomePage from './pages/HomePage';
 import About from './pages/AboutPage';
 import ArticlesList from './pages/ArticlesList';
 import Article from './pages/ArticlePage';
+
 import './App.css';
 
 function App() {
