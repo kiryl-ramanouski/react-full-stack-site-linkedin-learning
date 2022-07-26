@@ -1,5 +1,11 @@
 .App {
+  margin: 0 40px;
+}
+.header {
   text-align: center;
+}
+.main-text {
+  font-size: medium;
 }
 
 .App-logo {
