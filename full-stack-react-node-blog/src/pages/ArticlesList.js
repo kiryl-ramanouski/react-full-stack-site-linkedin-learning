@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // react bootstrap components
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -14,13 +14,12 @@ const ArticlesList = () => {
       <ListGroup>
         {articles.map((item, i) => {
           return (
-            <ListGroup.Item key={i} as={Link} to={item.name}>
+            <ListGroup.Item key={i} as={Link} to={`/article/${item.name}`}>
               {item.title}
             </ListGroup.Item>
           );
         })}
       </ListGroup>
-      <Outlet />
     </>
   );
 };
