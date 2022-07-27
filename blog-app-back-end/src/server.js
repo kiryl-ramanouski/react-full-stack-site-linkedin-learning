@@ -17,7 +17,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.post('api/articles/:name/upvote', (req, res) => {
+app.post('/api/articles/:name/upvote', (req, res) => {
   const articleName = req.params.name;
   articlesInfo[articleName].upVotes += 1;
 
