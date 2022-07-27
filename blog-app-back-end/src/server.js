@@ -23,7 +23,7 @@ app.post('/api/articles/:name/upvote', (req, res) => {
 
   res
     .status(200)
-    .send(`${articleName} now has ${articlesInfo[articleName].upVotes} votes`);
+    .send(`${articleName} now has ${articlesInfo[articleName].upVotes} votes!`);
 });
 
 app.listen(8000, () => console.log('Server is listening the port 8000'));
