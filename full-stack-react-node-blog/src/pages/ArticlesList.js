@@ -15,7 +15,8 @@ const ArticlesList = () => {
         {articles.map((item, i) => {
           return (
             <ListGroup.Item key={i} as={Link} to={`/article/${item.name}`}>
-              {item.title}
+              <h3 className='header'>{item.title}</h3>
+              <p>{item.content[0].slice(0, 100)}...</p>
             </ListGroup.Item>
           );
         })}
