@@ -1,18 +1,45 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+import bodyParser, { text } from 'body-parser';
 
 const articlesInfo = {
   'learn-react': {
     upVotes: 1,
-    comments: [],
+    comments: [
+      {
+        userName: 'Ivan',
+        text: 'I am very clever man!',
+      },
+    ],
   },
   'learn-node': {
     upVotes: 2,
-    comments: [],
+    comments: [
+      {
+        userName: 'Ivan',
+        text: 'I am very clever man!',
+      },
+      {
+        userName: 'Kate',
+        text: 'I am princess of the whole world!',
+      },
+    ],
   },
   'my-thoughts-on-resumes': {
     upVotes: 3,
-    comments: [],
+    comments: [
+      {
+        userName: 'Ivan',
+        text: 'I am very clever man!',
+      },
+      {
+        userName: 'Kate',
+        text: 'I am princess of the whole world!',
+      },
+      {
+        userName: 'Incognito',
+        text: 'Welcome to your new life!',
+      },
+    ],
   },
 };
 
