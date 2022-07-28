@@ -3,15 +3,15 @@ import bodyParser from 'body-parser';
 
 const articlesInfo = {
   'learn-react': {
-    upVotes: 0,
+    upVotes: 1,
     comments: [],
   },
   'learn-node': {
-    upVotes: 0,
+    upVotes: 2,
     comments: [],
   },
   'my-thoughts-on-resumes': {
-    upVotes: 0,
+    upVotes: 3,
     comments: [],
   },
 };
@@ -21,6 +21,12 @@ const app = express();
 app.use(bodyParser.json());
 
 // Routes
+app.get('/api/article/:name', (req, res) => {
+  const articleName = req.params.name;
+  const targetArticleInfo = articlesInfo[articleName];
+  res.status(200).json(targetArticleInfo);
+});
+
 app.post('/api/articles/:name/upvote', (req, res) => {
   const articleName = req.params.name;
   articlesInfo[articleName].upVotes += 1;
