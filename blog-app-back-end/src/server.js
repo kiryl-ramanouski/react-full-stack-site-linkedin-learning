@@ -31,7 +31,7 @@ app.post('/api/articles/:name/upvote', (req, res) => {
 
 app.post('/api/articles/:name/add-comment', (req, res) => {
   const articleName = req.params.name;
-  const { userName, comment } = JSON.stringify(req.body.comment);
+  const { userName, comment } = req.body;
   articlesInfo[articleName].comments.push({ userName, comment });
   res.status(200).send(articlesInfo[articleName]);
 });
