@@ -5,17 +5,32 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const AddCommentForm = () => {
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
+const AddCommentForm = ({ articleName, setArticlesInfo }) => {
+  const [userName, setName] = useState('');
+  const [commentText, setCommentText] = useState('');
+
+  const addNewComment = async (e) => {
+    e.preventDefault();
+    const newComment = { userName, text: commentText };
+    const result = await fetch(`/api/articles/${articleName}/add-comment`, {
+      method: 'post',
+      body: JSON.stringify(newComment),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const body = await result.json();
+    setArticlesInfo(body);
+  };
+
   return (
     <Form className='mt-3'>
       <h3>Add a Comment</h3>
       <Form.Group className='mb-3'>
         <Form.Label>Name:</Form.Label>
         <Form.Control
-          type='email'
-          value={name}
+          type='text'
+          value={userName}
           onChange={(e) => setName(e.target.value)}
           placeholder='Enter your name'
         />
@@ -28,13 +43,13 @@ const AddCommentForm = () => {
         <Form.Control
           as='textarea'
           type='textarea'
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
+          value={commentText}
+          onChange={(e) => setCommentText(e.target.value)}
           placeholder='Leave a comment here'
           style={{ height: '100px' }}
         />
       </Form.Group>
-      <Button variant='primary' type='submit'>
+      <Button variant='primary' type='submit' onClick={(e) => addNewComment(e)}>
         Add
       </Button>
     </Form>
