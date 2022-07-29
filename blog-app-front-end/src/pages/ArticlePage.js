@@ -8,6 +8,7 @@ import NotFoundPage from './NotFoundPage';
 // Components
 import ArticleList from '../components/ArticleList';
 import CommentsList from '../components/CommentsList';
+import UpVotesSection from '../components/UpVotesSection';
 
 // data
 import articles from '../content/article-content';
@@ -39,7 +40,11 @@ const ArticlePage = () => {
   return (
     <>
       <h2 className='header'>{article.title}</h2>
-      <p>This post has been up voted {articlesInfo.upVotes} times</p>
+      <UpVotesSection
+        articleName={name}
+        upVotes={articlesInfo.upVotes}
+        setArticlesInfo={setArticlesInfo}
+      />
       <>
         {article.content.map((item, i) => {
           return (
