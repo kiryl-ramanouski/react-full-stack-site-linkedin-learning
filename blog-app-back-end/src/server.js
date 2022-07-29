@@ -1,5 +1,6 @@
 import express from 'express';
-import bodyParser, { text } from 'body-parser';
+import bodyParser from 'body-parser';
+import path from 'path';
 
 const articlesInfo = {
   'learn-react': {
@@ -45,6 +46,7 @@ const articlesInfo = {
 
 const app = express();
 
+app.use(express.static(path.join(__dirname, '/build')));
 app.use(bodyParser.json());
 
 // Routes
