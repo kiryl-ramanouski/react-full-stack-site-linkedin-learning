@@ -57,9 +57,7 @@ app.get('/api/article/:name', (req, res) => {
 app.post('/api/articles/:name/upvote', (req, res) => {
   const articleName = req.params.name;
   articlesInfo[articleName].upVotes += 1;
-  res
-    .status(200)
-    .send(`${articleName} now has ${articlesInfo[articleName].upVotes} votes!`);
+  res.status(200).send(articlesInfo[articleName]);
 });
 
 app.post('/api/articles/:name/add-comment', (req, res) => {
