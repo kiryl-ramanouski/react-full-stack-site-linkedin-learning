@@ -10,7 +10,7 @@ const ArticleList = ({ articles }) => {
       {articles.map((item, i) => {
         return (
           <ListGroup.Item key={i} as={Link} to={`/article/${item.name}`}>
-            <h3 className='header'>{item.title}</h3>
+            <h4>{item.title}</h4>
             <p>{item.content[0].slice(0, 100)}...</p>
           </ListGroup.Item>
         );
