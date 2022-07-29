@@ -7,6 +7,7 @@ import NotFoundPage from './NotFoundPage';
 
 // Components
 import ArticleList from '../components/ArticleList';
+import CommentsList from '../components/CommentsList';
 
 // data
 import articles from '../content/article-content';
@@ -48,6 +49,7 @@ const ArticlePage = () => {
           );
         })}
       </>
+      <CommentsList comments={articlesInfo.comments} />
       {otherArticles && (
         <>
           <h3 className='header'>Other Articles</h3>
