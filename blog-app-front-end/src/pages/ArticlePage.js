@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import NotFoundPage from './NotFoundPage';
 
 // Components
+import AddCommentForm from '../components/AddCommentForm';
 import ArticleList from '../components/ArticleList';
 import CommentsList from '../components/CommentsList';
 import UpVotesSection from '../components/UpVotesSection';
@@ -55,10 +56,14 @@ const ArticlePage = () => {
         })}
       </>
       <CommentsList comments={articlesInfo.comments} />
+      <AddCommentForm articleName={name} setArticlesInfo={setArticlesInfo} />
       {otherArticles && (
         <>
           <h3 className='header'>Other Articles</h3>
-          <ArticleList articles={otherArticles} />
+          <ArticleList
+            articles={otherArticles}
+            setArticlesInfo={setArticlesInfo}
+          />
         </>
       )}
     </>
